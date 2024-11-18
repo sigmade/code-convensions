@@ -46,3 +46,48 @@
 ## Использование ключевых слов
 
 - **var**: Используйте `var`, если тип переменной очевиден из контекста (например, `var user = new User();`).
+
+## Пример кода
+
+```csharp
+public sealed class User
+{
+    // Константы
+    private const int MaxAttempts = 3;
+
+    // Статические поля
+    public static readonly string DefaultRole = "Guest";
+
+    // Приватные поля
+    private string _userName;
+    private int _loginAttempts;
+
+    // Свойства
+    public required string UserName { get; init; }
+    public bool IsLocked { get; private set; }
+
+    // Конструктор
+    public User(string userName)
+    {
+        _userName = userName;
+        _loginAttempts = 0;
+        IsLocked = false;
+    }
+
+    // Публичные методы
+    public void Login(string password)
+    {
+        if (IsLocked)
+        {
+            Console.WriteLine("Account is locked.");
+            return;
+        }
+        // Реализация метода...
+    }
+
+    // Приватные методы
+    private void LockAccount()
+    {
+        IsLocked = true;
+    }
+}
