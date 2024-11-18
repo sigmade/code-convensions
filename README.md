@@ -46,11 +46,12 @@
 ## Использование ключевых слов
 
 - **var**: Используйте `var`, если тип переменной очевиден из контекста (например, `var user = new User();`).
+- **sealed**: Используйте `sealed`, для классов, чтобы предотвратить их наследование и улучшить производительность. 
 
 ## Пример кода
 
 ```csharp
-public sealed class User
+internal sealed class User
 {
     // Константы
     private const int MaxAttempts = 3;
